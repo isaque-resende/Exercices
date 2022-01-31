@@ -1,0 +1,42 @@
+nav {
+    text-align: center;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    padding: 0 10px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+    padding: 4px;
+  }
+
+  nav a:hover {
+      background-color: rgb(192, 192, 192);
+      color: rgb(17, 17, 17);
+      border-radius: 5px;
+  }
+  
+  .nav-border {
+    border-left: 2px solid black;
+  }
+
+  h1 {
+      font-size: 3rem;
+      text-align: center;
+      font-family: sans-serif;
+  }
+
+#gallery img {
+    width: 350px;
+    border: 5px solid rgb(228, 148, 0);
+    margin: 0 20px;
+    
+    }
