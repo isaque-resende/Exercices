@@ -14,12 +14,8 @@ function totalBirdCount(birdsPerDay) {
       let totalBirds = 0;
 
       for (let i = 0; i < birdsPerDay.length; i++){
-          totalBirds = totalBirds + birdsPerDay[i];
-      };
-
-        return totalBirds;
-
-    }
+          totalBirds = totalBirds + birdsPerDay[i];};
+        return totalBirds;};
 
     // Task 2
 // Calculate the number of visiting birds in a specific week
@@ -56,10 +52,9 @@ function birdsInWeek(birdsPerDay, weekNum) {
 // fixBirdCountLog(birdsPerDay);
 // // => [3, 5, 1, 7, 5, 1]
 
-
 function fixBirdCountLog(birdsPerDay) {
 
-    ;
-   
+    for(let i = 0; i < birdsPerDay.length; i += 2){
+        birdsPerDay.splice(i, 1, birdsPerDay[i]+1);};
 
-};
+            return birdsPerDay;};
