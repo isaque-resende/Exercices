@@ -49,7 +49,7 @@ function addPlayer(scoreBoard, player, score) {
 function removePlayer(scoreBoard, player) {
   delete  scoreBoard[player];
   return scoreBoard;
-}
+};
 
 // Task 4
 // Increase a player's score
@@ -65,9 +65,9 @@ function removePlayer(scoreBoard, player) {
 // // => {"Freyja Ćirić": 12771081}
 
 function updateScore(scoreBoard, player, points) {
-  scoreBoard[player] = scoreBoard[player] + points;
+  scoreBoard[player] += points;
   return scoreBoard;
-}
+};
 
 // Task 5
 // Apply Monday bonus points
@@ -87,10 +87,10 @@ function updateScore(scoreBoard, player, points) {
 
 function applyMondayBonus(scoreBoard) {
   for (let name in scoreBoard){
-    scoreBoard[name] =  scoreBoard[name]  + 100;
-  }
+    scoreBoard[name] += 100;
+  };
   return scoreBoard;
-}
+};
 
 // Task 6
 // Normalize a high score
@@ -110,13 +110,5 @@ function applyMondayBonus(scoreBoard) {
 // // => 810
 
 function normalizeScore(params){
-    
-//  function normalize(score) {
-    return 2 * score + 10;
-  // }
-
-
-
+  return params.normalizeFunction(params.score);
 };
-
-console.log(normalizeScore({ score: 400, normalizeFunction: normalize });
