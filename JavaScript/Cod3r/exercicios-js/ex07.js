@@ -6,5 +6,15 @@ que os resultados sejam iguais. Caso o delta seja negativo, retorne, ao invés d
 “Delta é negativo”.*/
 
 function bhaskara(ax2, bx, c){
-    
+    let delta = bx ** 2 - 4 * ax2 * c
+    if (delta < 0){
+        return 'Delta é negativo.'
+    } else {
+        let x1 = (-bx - Math.sqrt(delta)) / (2 * ax2)
+        let x2 = (-bx + Math.sqrt(delta)) / (2 * ax2)
+        return `As duas raízes de delta = ${delta} são ${x1} e ${x2}.`
+    }
 }
+
+console.log(bhaskara(3, -5, 12))
+console.log(bhaskara(-3, 5, 12))
