@@ -7,4 +7,4 @@ function calcularValor(mes, valor){
     }
 }
 
-console.log(calcularValor(4, 100))
+console.log(calcularValor(1, 100))
