@@ -1,4 +1,22 @@
-function verificacaoDeString(string1, string2) {
+/* 34) Construa uma função que receberá duas Strings de tamanhos variados e que retornará True ou False caso
+todos os caracteres (independentemente de ser maiúsculo ou minúsculo) estejam contidos em ambas palavras.*/
+
+function caracteresContidos(string1, string2) {
+    const string1Minusc = string1.toLowerCase();
+    const string2Minusc = string2.toLowerCase();
+    const caracteresUnicosString1 = [...new Set(string1Minusc)];
+    const caracteresUnicosString2 = [...new Set(string2Minusc)];
+    const todosCaracteresContidos = caracteresUnicosString1.every(char => caracteresUnicosString2.includes(char));
+  
+    return todosCaracteresContidos;
+  }
+  
+  const resultado = caracteresContidos("Marrocos", "Socorra-me");
+  console.log(resultado);
+
+  //
+
+  function verificacaoDeString(string1, string2) {
     let estaContido = true;
     for (let i = 0; i < string1.length; i++) {
         let caractereString1 = string1.charAt(i).toLowerCase()
@@ -36,3 +54,4 @@ function verificacaoDeString(string1, string2) {
 }
 
 console.log(verificacaoDeString('abcd', 'dcba'))
+  
