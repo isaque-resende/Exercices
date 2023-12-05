@@ -18,3 +18,8 @@ function menorN2(numeros) {
 
     console.log(menorN2([5, -1, 50, -3.5]))
     
+//
+
+function menorN3(numeros) {
+    return Math.min(...numeros);
+    }
