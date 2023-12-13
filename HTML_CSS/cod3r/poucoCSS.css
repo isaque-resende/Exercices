@@ -1,0 +1,18 @@
+h1 {
+    display: block;
+    text-align: center;
+    background-color: rgb(255, 0, 166);
+    font-size: 20px;
+}
+
+.fundoVermelho {
+    background-color: brown;
+}
+
+#textoPrincipal {
+    font-size: 40px;
+    font-weight: bold;
+    color: blueviolet;
+    padding: 10px;
+    background-color: azure;
+}
