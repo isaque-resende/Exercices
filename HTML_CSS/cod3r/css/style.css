@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.cabecalho {
+    background-color: rgb(40, 40, 40);
+    width: 100%;
+    height: 60px;
+    border-bottom: solid 5px rgb(43, 117, 202);
+    
+}
+
+a img {
+    height: 40px;
+    padding: 10px;
+}
+
+
+a {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.menu li {
+    display: inline-block;
+}
+
+.menu-toggle {
+    display: none;
+}
