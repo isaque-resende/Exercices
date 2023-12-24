@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    padding: 0;
+    background-color: lightgrey;
 }
 
 .cabecalho {
@@ -9,6 +9,7 @@ body {
     height: 60px;
     border-bottom: solid 5px rgb(43, 117, 202);
     
+    
 }
 
 a img {
@@ -16,17 +17,74 @@ a img {
     padding: 10px;
 }
 
+nav {
+    position: absolute;
+    left: 250px;
+    top: 0;
+}
+
+aside {
+    position: absolute;
+    right: 30px;
+    top: 0;
+}
+
+.menu li, aside {
+    display: inline-block;
+    padding: 21.5px 10px 20px 10px;
+}
 
 a {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     list-style-type: none;
     text-decoration: none;
+    color: white;
+   }
+
+   aside a {
+    padding: 10px;
+   }
+
+   .destaque {
+    background-color: crimson;
+    border-radius: 25px;
+    padding: 10px 20px;
+   }
+
+
+nav li:hover {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+    background-color: dodgerblue;
 }
 
-.menu li {
-    display: inline-block;
+ul {
+    margin: 0;
 }
 
 .menu-toggle {
     display: none;
+}
+
+@media (max-width: 775px) {
+    aside{
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    ul {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: inline-block;
+        position: absolute;
+        top: 19px;
+        right: 10px;
+        
+    }
+
 }
