@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area{
+            background-color: aquamarine;
+            border: solid 15px black;
+            min-width: auto;
+            min-height: 500px;
+            display: flex;
+            flex-flow: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item {
+            background-color: orangered;
+            padding: 10px 100px;
+            border: 5px solid white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: white;
+            font: bold 25px arial;
+        }
+
+        .settings-control {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        [class$="box"] {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: space-around;
+            margin: 20px 10px;
+            width: 200px;
+            height: 350px;
+            padding: 10px;
+        }
+        
+        h3:first-of-type {
+            color: white;
+            padding: 20px 30px;
+            margin: 0;
+            align-self: stretch;
+            text-align: center;
+        }
+        
+        [id$="Select"] {
+            background-color: rgb(205, 236, 236);
+            border-radius: 25px;
+            padding: 5px;
+            margin: auto;        }
+
+        .flex-flow-box, #flexFlowSelect {
+            border: solid 3px rgb(230, 92, 0);
+        }
+
+        .flex-flow-box h3 {
+            background-color: rgb(230, 92, 0);
+        }
+
+        .justify-content-box, #justifyContentSelect {
+            border: solid 3px green;
+        }
+        
+        .justify-content-box h3 {
+            background-color: darkgreen;
+        }
+
+        .align-items-box, #alignItemsSelect {
+            border: solid 3px rgb(38, 59, 151);
+        }
+
+        .align-items-box h3 {
+            background-color: rgb(38, 59, 151);
+        }
+
+        #itemSelect, #alignSelfSelect, .align-self-box {
+            border: solid 3px rgb(166, 3, 52);
+        }
+
+        .align-self-box button {
+            margin: auto;
+            border: solid 3px rgb(166, 3, 52);
+            padding: 5px;
+        }
+
+        .align-self-box h3 {
+            background-color: rgb(166, 3, 52);
+        }
+
+        .order-box button {
+            margin: auto;
+            border: solid 3px rgb(74, 3, 81);
+            padding: 5px;
+        }
+
+        .order-box h3 {
+            background-color: rgb(74, 3, 81);
+        }
+
+        #itemOrderSelect, #orderValueSelect, .order-box {
+            border: solid 3px rgb(74, 3, 81);
+        }
+
+        .flex-box button, .flex-box input {
+            margin: auto;
+            border: solid 3px rgb(74, 3, 81);
+            padding: 5px;
+        }
+
+        .flex-box h3 {
+            background-color: rgb(74, 3, 81);
+        }
+
+        #flexItemSelect, #flexGrowSelect, #flexShrinkSelect, .flex-box {
+            border: solid 3px rgb(74, 3, 81);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="area">
+        <div class="item tag1">1</div>
+        <div class="item tag2">2</div>
+        <div class="item tag3">3</div>
+        <div class="item tag4">4</div>
+        <div class="item tag5">5</div>
+    </div>
+
+    <div class="settings-control">
+        <div class="flex-flow-box">
+            <h3>flex-flow</h3>
+            <select id="flexFlowSelect" onchange="updateFlexFlow()">
+                <option value="row nowrap">Row Nowrap</option>
+                <option value="row wrap">Row Wrap</option>
+                <option value="column nowrap">Column Nowrap</option>
+                <option value="column wrap">Column Wrap</option>
+                <option value="row-reverse nowrap">Row Reverse Nowrap</option>
+                <option value="row-reverse wrap">Row Reverse Wrap</option>
+                <option value="column-reverse nowrap">Column Reverse Nowrap</option>
+                <option value="column-reverse wrap">Column Reverse Wrap</option>
+            </select>
+        </div>
+        <div class="justify-content-box">
+            <h3>justify-content</h3>
+            <select id="justifyContentSelect" onchange="updateJustifyContent()">
+                <option value="center">Center</option>
+                <option value="flex-start">Flex Start</option>
+                <option value="flex-end">Flex End</option>
+                <option value="space-between">Space Between</option>
+                <option value="space-around">Space Around</option>
+                <option value="space-evenly">Space Evenly</option>
+            </select>
+        </div>
+        <div class="align-items-box">
+            <h3>align-items</h3>
+            <select id="alignItemsSelect" onchange="updateAlignItems()">
+                <option value="center">Center</option>
+                <option value="flex-start">Flex Start</option>
+                <option value="flex-end">Flex End</option>
+                <option value="baseline">Baseline</option>
+                <option value="stretch">Stretch</option>
+            </select>
+        </div>
+        <div class="align-self-box">
+            <h3>align-self</h3>
+            <select id="itemSelect">
+                <option value="todos">Todos os Itens</option>
+                <option value="1">Item 1</option>
+                <option value="2">Item 2</option>
+                <option value="3">Item 3</option>
+                <option value="4">Item 4</option>
+                <option value="5">Item 5</option>
+            </select>
+    
+            <select id="alignSelfSelect">
+                <option value="auto">Auto</option>
+                <option value="flex-start">Flex Start</option>
+                <option value="flex-end">Flex End</option>
+                <option value="center">Center</option>
+                <option value="baseline">Baseline</option>
+                <option value="stretch">Stretch</option>
+            </select>
+    
+            <button onclick="updateAlignSelf()">Aplicar</button>
+        </div>
+        <div class="order-box">
+            <h3>order</h3>
+            <select id="itemOrderSelect">
+                <option value="todos">Todos os Itens</option>
+                <option value="1">Item 1</option>
+                <option value="2">Item 2</option>
+                <option value="3">Item 3</option>
+                <option value="4">Item 4</option>
+                <option value="5">Item 5</option>
+            </select>
+        
+            <select id="orderValueSelect">
+                <option value="-2">-2</option>
+                <option value="-1">-1</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+        
+            <button onclick="updateOrder()">Aplicar</button>
+        </div>
+        <div class="flex-box">
+            <h3>flex</h3>
+            <select id="flexItemSelect">
+                <option value="todos">Todos os Itens</option>
+                <option value="1">Item 1</option>
+                <option value="2">Item 2</option>
+                <option value="3">Item 3</option>
+                <option value="4">Item 4</option>
+                <option value="5">Item 5</option>
+            </select>
+        
+            <div>
+                <h4 style="display: inline;">Grow</h4>
+                <select id="flexGrowSelect">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        
+            <div>
+                <h4 style="display: inline;">Shrink</h4>
+                <select id="flexShrinkSelect">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        
+            <div>
+                <h4 style="display: inline;">Basis</h4>
+                <input id="flexBasisInput" type="text" placeholder="auto ou número" style="width: 50%;">
+            </div>
+        
+            <button onclick="updateFlex()">Aplicar Flex</button>
+        </div>
+        
+        
+    </div>
+    
+    <script>
+        function updateFlexFlow() {
+            var selectedValue = document.getElementById('flexFlowSelect').value;
+            document.querySelector('.area').style.flexFlow = selectedValue;
+    }
+
+        function updateJustifyContent() {
+            var selectedValue = document.getElementById('justifyContentSelect').value;
+            document.querySelector('.area').style.justifyContent = selectedValue;
+    }
+        function updateAlignItems() {
+            var selectedValue = document.getElementById('alignItemsSelect').value;
+            document.querySelector('.area').style.alignItems = selectedValue;
+    }
+
+        function updateAlignSelf() {
+            var itemNumber = document.getElementById('itemSelect').value;
+            var alignSelfValue = document.getElementById('alignSelfSelect').value;
+
+            if (itemNumber === 'todos') {
+                // Aplica a todos os itens
+                var items = document.querySelectorAll('.area .item');
+                items.forEach(function(item) {
+                    item.style.alignSelf = alignSelfValue;
+                });
+            } else {
+                // Aplica a um item específico
+                document.querySelector('.item.tag' + itemNumber).style.alignSelf = alignSelfValue;
+            }
+    }
+        function updateOrder() {
+            var itemNumber = document.getElementById('itemOrderSelect').value;
+            var orderValue = document.getElementById('orderValueSelect').value;
+
+            if (itemNumber === 'todos') {
+                // Aplica a todos os itens
+                var items = document.querySelectorAll('.area .item');
+                items.forEach(function(item) {
+                    item.style.order = orderValue;
+                });
+            } else {
+                // Aplica a um item específico
+                document.querySelector('.item.tag' + itemNumber).style.order = orderValue;
+            }
+        }
+
+        function updateFlex() {
+            var itemNumber = document.getElementById('flexItemSelect').value;
+            var flexGrow = document.getElementById('flexGrowSelect').value;
+            var flexShrink = document.getElementById('flexShrinkSelect').value;
+            var flexBasis = document.getElementById('flexBasisInput').value;
+
+            // Se 'flexBasis' estiver em branco, atribua 'auto'
+            flexBasis = flexBasis === '' ? 'auto' : flexBasis + 'px';
+
+            var flexValue = flexGrow + ' ' + flexShrink + ' ' + flexBasis;
+
+            if (itemNumber === 'todos') {
+                // Aplica a todos os itens
+                var items = document.querySelectorAll('.area .item');
+                items.forEach(function(item) {
+                    item.style.flex = flexValue;
+                });
+            } else {
+                // Aplica a um item específico
+                document.querySelector('.item.tag' + itemNumber).style.flex = flexValue;
+            }
+        }
+
+    </script>
+    
+</body>
+</html>

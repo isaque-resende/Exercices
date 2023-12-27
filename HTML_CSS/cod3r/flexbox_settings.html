@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area {
+            background-color: rgb(83, 128, 113);
+            border: solid 15px black;
+            min-height: 500px;
+            display: flex;
+            flex-flow: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item {
+            background-color: orangered;
+            padding: 10px 100px;
+            border: 5px solid white;
+            color: white;
+            font: bold 25px arial;
+        }
+
+        .settings-control {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .control-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 10px;
+            width: 200px;
+            padding: 10px;
+            background-color: rgb(10, 182, 119);
+            border-radius: 25px;
+        }
+
+        .control-box h3 {
+            color: white;
+            padding: 20px 30px;
+            margin: 0;
+            border-radius: 25px;
+            background-color: #333;
+            text-align: center;
+            width: 100%;
+        }
+
+        .control-box button {
+            margin: 5px;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #ddd;
+            font: bold 15px arial;
+        }
+    </style>
+</head>
+<body>
+    <div class="area">
+        <div class="item tag1">1</div>
+        <div class="item tag2">2</div>
+        <div class="item tag3">3</div>
+        <div class="item tag4">4</div>
+        <div class="item tag5">5</div>
+    </div>
+
+    <div class="settings-control">
+        <div class="control-box flex-flow-box">
+            <h3>flex-flow:</h3>
+            <button onclick="updateStyle('.area', 'flexDirection', 'row')">row;</button>
+            <button onclick="updateStyle('.area', 'flexDirection', 'row-reverse')">row-reverse;</button>
+            <button onclick="updateStyle('.area', 'flexDirection', 'column')">column;</button>
+            <button onclick="updateStyle('.area', 'flexDirection', 'column-reverse')">column-reverse;</button>
+            <button onclick="updateStyle('.area', 'flexWrap', 'column nowrap')">wrap;</button>
+            <button onclick="updateStyle('.area', 'flexWrap', 'column wrap')">nowrap;</button>
+        </div>
+
+        <div class="control-box justify-content-box">
+            <h3>justify-content:</h3>
+            <button onclick="updateStyle('.area', 'justifyContent', 'center')">center;</button>
+            <button onclick="updateStyle('.area', 'justifyContent', 'flex-start')">flex-start;</button>
+            <button onclick="updateStyle('.area', 'justifyContent', 'flex-end')">flex-end;</button>
+            <button onclick="updateStyle('.area', 'justifyContent', 'space-around')">space-around;</button>
+            <button onclick="updateStyle('.area', 'justifyContent', 'space-evenly')">space-evenly;</button>
+            <button onclick="updateStyle('.area', 'justifyContent', 'space-between')">space-between;</button>
+        </div>
+
+        <div class="control-box align-items-box">
+            <h3>align-items:</h3>
+            <button onclick="updateStyle('.area', 'alignItems', 'center')">center;</button>
+            <button onclick="updateStyle('.area', 'alignItems', 'flex-start')">flex-start;</button>
+            <button onclick="updateStyle('.area', 'alignItems', 'flex-end')">flex-end;</button>
+            <button onclick="updateStyle('.area', 'alignItems', 'stretch')">stretch;</button>
+        </div>
+
+        <!-- Outras configurações: Align Self, Order, Flex -->
+        
+    </div>
+
+    <script>
+        function updateStyle(selector, property, value) {
+            document.querySelector(selector).style[property] = value;
+        }
+
+        // Funções adicionais para align-self, order, flex
+    </script>
+</body>
+</html>
