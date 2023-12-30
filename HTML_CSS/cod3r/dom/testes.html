@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body {
+            background-color: darkgrey;
+        }
+        
+        #calculadora {
+            background-color: darkslategray;
+            width: 350px;
+            height: auto;
+            margin: auto;
+            padding: 15px;
+            display: block;         
+        }
+
+        #numeros {
+            display: grid;
+            grid: repeat(5, 1fr) / repeat(5, 1fr);
+            gap: 5px;
+        }
+        
+        #numeros button {
+            font: bold 25px Arial;
+        }
+        
+        #resultado {
+            background-color: gainsboro;
+            display: flex;
+            grid-area: 1 / 1 / 2 / 6;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 30px;
+            font: bold 20px arial;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculadora">
+        <div id="numeros">
+            <div id="resultado">124</div>
+            <button id="n1">1</button>
+            <button id="n2">2</button>
+            <button id="n3">3</button>
+            <button id="mais">+</button>
+            <button id="potencia">Pot</button>
+            <button id="n4">4</button>
+            <button id="n5">5</button>
+            <button id="n6">6</button>
+            <button id="menos">-</button>
+            <button id="raiz">Raiz</button>
+            <button id="n7">7</button>
+            <button id="n8">8</button>
+            <button id="n9">9</button>
+            <button id="vezes">x</button>
+            <button id="limpar">C</button>
+            <button id="apagar">Del</button>
+            <button id="n0">0</button>
+            <button id="decimal">,</button>
+            <button id="dividir">/</button>
+            <button id="igual">=</button>
+        </div>
+        <div id="operacoes"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const resultado = document.getElementById('resultado');
+    let expressao = '';
+
+    // Adiciona evento de clique a cada botão
+    document.querySelectorAll('#numeros button').forEach(button => {
+        button.addEventListener('click', () => {
+            switch (button.id) {
+                case 'limpar':
+                    expressao = '';
+                    break;
+                case 'apagar':
+                    expressao = expressao.slice(0, -1);
+                    break;
+                case 'igual':
+                    expressao = calcular(expressao);
+                    break;
+                default:
+                    expressao += button.innerText;
+            }
+            atualizarDisplay(expressao);
+        });
+    });
+
+    // Função para atualizar o display
+    function atualizarDisplay(valor) {
+        resultado.innerText = valor;
+    }
+
+    // Função para calcular a expressão
+    function calcular(expr) {
+        try {
+            // Substitui símbolos para operações válidas em JavaScript
+            expr = expr.replace(/x/g, '*').replace(/,/g, '.');
+            // Avalia a expressão
+            let resultado = eval(expr);
+            return resultado.toString().replace('.', ',');
+        } catch (e) {
+            return 'Erro';
+        }
+    }
+});
+
+    </script>
+</body>
+</html>
