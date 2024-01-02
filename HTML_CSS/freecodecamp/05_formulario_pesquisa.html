@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="05_styles.css">
+</head>
+
+<body>
+    <h1 id="title">freeCodeCamp Survey Form</h1>
+    <p id="description">
+        Thank you for taking the time to help us improve the platform
+    </p>
+    <form action="POST" id="survey-form">
+        <label for="name" id="name-label">Name <input class="bar_size" type="text" name="name" id="name" required placeholder="Enter your name" /></label>
+        <label for="email" id="email-label">Email <input class="bar_size" type="email" name="email" id="email" required placeholder="Enter your email"
+                pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" /></label>
+        <label for="number" id="number-label">Age (optional) <input class="bar_size" type="number" name="number" id="number" placeholder="Age" pattern="[0-9]" min="1" max="3" /></label>
+        <label for="role">Which option best describes your current role?
+            <select class="bar_size" name="role" id="dropdown">
+                <option selected disabled>Select current role</option>
+                <option value="Boss">The Boss</option>
+                <option value="Employee">A Employee</option>
+            </select>
+        </label>
+        <label for="referrer">Would you recommend freeCodeCamp to a friend?
+            <label for="ref"><input type="radio" name="referrer" value="Definitely" checked /> Definitely</label>
+            <label for="ref"><input type="radio" name="referrer" value="Maybe" /> Maybe</label>
+            <label for="ref"><input type="radio" name="referrer" value="Not sure" /> Not sure</label>
+        </label>
+        <label for="">What would you like to see improved? (Check all that apply)
+            <label id="check" for="opt1"><input type="checkbox" value="1" name="opt1"> Front-end Projects</label>
+            <label id="check" for="opt2"><input type="checkbox" value="2" name="opt2"> Back-end Projects</label>
+            <label id="check" for="opt3"><input type="checkbox" value="3" name="opt3"> Data Visualization</label>
+            <label id="check" for="opt4"><input type="checkbox" value="4" name="opt4"> Challenges</label>
+            <label id="check" for="opt5"><input type="checkbox" value="5" name="opt5"> Open Source Community</label>
+            <label id="check" for="opt6"><input type="checkbox" value="6" name="opt6"> Gitter help rooms</label>
+            <label id="check" for="opt7"><input type="checkbox" value="7" name="opt7"> Videos</label>
+            <label id="check" for="opt8"><input type="checkbox" value="8" name="opt8"> City Meetups</label>
+            <label id="check" for="opt9"><input type="checkbox" value="9" name="opt9"> Wiki</label>
+            <label id="check" for="opt10"><input type="checkbox" value="10" name="opt10"> Forum</label>
+            <label id="check" for="opt11"><input type="checkbox" value="11" name="opt11"> Additional Courses</label>
+        </label>
+        <label for="comments">Any comments or suggestions?
+            <textarea class="bar_size" name="comments" id="comments" cols="30" rows="10" placeholder="Additional comments"></textarea>
+        </label>
+        <input type="submit" value="Submit" id="submit">
+    </form>
+</body>
+
+</html>
