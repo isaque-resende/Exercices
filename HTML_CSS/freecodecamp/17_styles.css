@@ -1,0 +1,207 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: lightgoldenrodyellow;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: peru;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+#header-img {
+  width: 25rem;
+  margin: 20px 0px;
+}
+
+nav {
+  margin-right: 80px;
+}
+
+nav a {
+  padding: 25px;
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+nav a:hover {
+  background-color: lightgoldenrodyellow;
+}
+
+#form {
+  margin: 120px auto 80px auto;
+  text-align: center;
+}
+
+h1 {
+  padding-bottom: 30px;
+}
+
+#email {
+  width: 300px;
+  height: 30px;
+}
+
+#email::placeholder {
+  padding-left: 10px;
+}
+
+#submit {
+  width: 100px;
+  height: 35px;
+  color: white;
+  font-size: larger;
+  font-weight: bold;
+  background-color: sienna;
+  padding-bottom: 10px;
+}
+
+#Features {
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feat-lines {
+  display: flex;
+  width: 800px;
+  height: 120px;
+}
+
+.feature-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 600px;
+}
+
+.feature-items p {
+  margin-top: 5px;
+}
+
+.icon {
+  color: sienna;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#How_It_Works {
+  text-align: center;
+}
+
+#Pricings {
+  display: flex;
+  justify-content: center;
+}
+
+.price-box {
+  margin: 80px 20px;
+  background-color: rgb(250, 248, 246);
+  border: solid 2px;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.price-box:hover {
+  background-color: rgb(231, 195, 149);
+}
+
+.price-box h3 {
+  margin-bottom: 20px;
+  background-color: sienna;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.price-box h4 {
+  padding-bottom: 20px;
+  font-size: 2rem;
+}
+
+.price-box button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: rgb(255, 208, 0);
+  font-weight: bolder;
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.price-box button:hover {
+  background-color: rgb(255, 174, 0);
+  cursor: pointer;
+}
+
+footer {
+  background-color: sienna;
+  margin-top: auto;
+  padding: 30px;
+  text-align: center;
+}
+
+footer a {
+  text-decoration: none;
+  padding: 20px;
+  color: white;
+  font-size: 1.2rem;
+}
+
+footer p {
+  font-weight: bolder;
+  padding: 10px;
+}
+
+@media screen and (max-width: 960px) {
+  nav a {
+    padding: 5px;
+    font-size: medium;
+  }
+
+  #header-img {
+    width: 15rem;
+    margin: 10px 0px;
+  }
+
+  .feat-lines {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 120px;
+    margin: 50px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature-items {
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    margin: 15px;
+  }
+
+  #Pricings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
