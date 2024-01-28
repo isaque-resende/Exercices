@@ -113,12 +113,12 @@ const pauseSong = () => {
 
 const playNextSong = () => {
   if (userData?.currentSong === null) {
-    playSong(userData?.songs[0].id);
+    playSongWithSliderUpdate(userData?.songs[0].id);
   } else {
     const currentSongIndex = getCurrentSongIndex();
     const nextSong = userData?.songs[currentSongIndex + 1];
 
-    playSong(nextSong.id);
+    playSongWithSliderUpdate(nextSong.id);
   }
 };
 
@@ -128,7 +128,7 @@ const playPreviousSong = () => {
     const currentSongIndex = getCurrentSongIndex();
     const previousSong = userData?.songs[currentSongIndex - 1];
 
-    playSong(previousSong.id);
+    playSongWithSliderUpdate(previousSong.id);
   }
 };
 
@@ -143,6 +143,43 @@ const shuffle = () => {
   setPlayButtonAccessibleText();
 };
 
+const audioSlider = document.getElementById("audio-slider");
+
+const updateSlider = () => {
+  if (!isNaN(audio.duration)) {
+    audioSlider.max = audio.duration;
+    audioSlider.value = audio.currentTime;
+  }
+};
+
+const formatTime = (time) => {
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60);
+  return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+};
+
+const updateDurationDisplay = () => {
+  const songDurationDisplay = document.getElementById("song-duration");
+  if (!isNaN(audio.duration)) {
+    const currentTime = formatTime(audio.currentTime);
+    const totalDuration = formatTime(audio.duration);
+    songDurationDisplay.textContent = `${currentTime} / ${totalDuration}`;
+  }
+};
+
+const playSongWithSliderUpdate = (id) => {
+  playSong(id);
+  const songDurationDisplay = document.getElementById("song-duration");
+  songDurationDisplay.style.display = "block";
+  setTimeout(updateSlider, 300);
+  updateDurationDisplay();
+};
+
+const hideSongDuration = () => {
+  const songDurationDisplay = document.getElementById("song-duration");
+  songDurationDisplay.style.display = "none";
+};
+
 const deleteSong = (id) => {
   if (userData?.currentSong?.id === id) {
     userData.currentSong = null;
@@ -150,6 +187,7 @@ const deleteSong = (id) => {
 
     pauseSong();
     setPlayerDisplay();
+    hideSongDuration();
   }
 
   userData.songs = userData?.songs.filter((song) => song.id !== id);
@@ -204,7 +242,7 @@ const renderSongs = (array) => {
     .map((song) => {
       return `
       <li id="song-${song.id}" class="playlist-song">
-      <button class="playlist-song-info" onclick="playSong(${song.id})">
+      <button class="playlist-song-info" onclick="playSongWithSliderUpdate(${song.id})">
           <span class="playlist-song-title">${song.title}</span>
           <span class="playlist-song-artist">${song.artist}</span>
           <span class="playlist-song-duration">${song.duration}</span>
@@ -234,9 +272,9 @@ const getCurrentSongIndex = () => userData?.songs.indexOf(userData.currentSong);
 
 playButton.addEventListener("click", () => {
   if (userData?.currentSong === null) {
-    playSong(userData?.songs[0].id);
+    playSongWithSliderUpdate(userData?.songs[0].id);
   } else {
-    playSong(userData?.currentSong.id);
+    playSongWithSliderUpdate(userData?.currentSong.id);
   }
 });
 
@@ -247,6 +285,17 @@ nextButton.addEventListener("click", playNextSong);
 previousButton.addEventListener("click", playPreviousSong);
 
 shuffleButton.addEventListener("click", shuffle);
+
+audioSlider.addEventListener("input", () => {
+  audio.currentTime = audioSlider.value;
+});
+
+audio.addEventListener("timeupdate", updateSlider);
+
+audio.addEventListener("timeupdate", () => {
+  updateSlider();
+  updateDurationDisplay();
+});
 
 audio.addEventListener("ended", () => {
   const currentSongIndex = getCurrentSongIndex();
@@ -261,6 +310,7 @@ audio.addEventListener("ended", () => {
     setPlayerDisplay();
     highlightCurrentSong();
     setPlayButtonAccessibleText();
+    hideSongDuration();
   }
 });
 
