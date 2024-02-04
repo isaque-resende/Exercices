@@ -1,0 +1,74 @@
+body {
+    background-color: rgb(23, 23, 49);
+    }
+
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+}
+
+img {
+    width: 300px;
+}
+
+h1 {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2.8rem;
+}
+
+#text-box {
+    background-color: white;
+    padding: 10px 50px 20px 50px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    border-bottom: solid 5px rgb(10, 117, 183);
+}
+
+#text-box p{
+    font-size: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#text-input {
+    width: 250px;
+    margin: 10px;
+    border: none;
+    border-bottom: solid 3px rgb(114, 10, 183);
+    padding: 5px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+#check-btn {
+    background-color: rgb(114, 10, 183);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+#info-box {
+    background-color: rgb(13, 115, 166);
+    color: white;
+    font-size: 1.4rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 20px 50px;
+    width: 400px;
+    border-radius: 25px;
+    margin-top: 40px;
+}
+
+#result {
+    padding: 20px;
+    font-size: 1.4rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
