@@ -1,0 +1,88 @@
+body {
+  background-color: rgb(23, 23, 49);
+  font-family: "Times New Roman", Times, serif;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+}
+
+img {
+  width: 300px;
+}
+
+h1 {
+  color: white;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+#text-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(65, 71, 98);
+  border: 5px white solid;
+  width: 500px;
+  height: 280px;
+  padding: 10px 0;
+}
+
+#text-box p {
+  font-size: 1.8rem;
+  color: white;
+  font-weight: bolder;
+}
+
+#convert-btn {
+  background-color: rgb(245, 204, 39);
+  color: rgb(0, 0, 0);
+  padding: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+#converter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 240px;
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+#number {
+  height: 68px;
+  background-color: rgb(23, 23, 49);
+  border: solid 2px white;
+  color: white;
+  font-size: 2.5rem;
+  padding: 0 10px;
+}
+
+#convert-btn:hover {
+  background-color: rgb(245, 163, 39);
+}
+
+#output {
+  margin-top: 30px;
+  padding: 10px;
+  background-color: rgb(65, 71, 98);
+  border: 5px white solid;
+  width: 480px;
+  height: 70px;
+  color: white;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
